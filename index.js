@@ -1,0 +1,1 @@
+var weatherchecker = require("./weatherchecker");
