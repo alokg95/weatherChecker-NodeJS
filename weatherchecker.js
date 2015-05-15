@@ -1,18 +1,16 @@
 var http = require("http");
 
-var xxx = "fremont";
-
-var request = http.get("http://api.wunderground.com/api/a0c510a81db3d0ab/conditions/q/CA/xxx.json", function(response){
+var request = http.get("http://api.openweathermap.org/data/2.5/weather?zip=93106,us&units=imperial", function(response){
 	var body = "";
 
 	response.on('data', function(stats){
 		body += stats; 
-		console.log(body);
+		
 	});
 
 	response.on('end', function(){
 		var weather = JSON.parse(body);
-		// console.log("The current weather is " + weather.current_observation.weather + ", " + weather.current_observation.temp_f + " degrees (F).");
+		console.log("The current weather is " + weather.weather.main + " (" + weather.main.temp + " degrees F) " + "in " + weather.name + ".");
 	});
 
 });
