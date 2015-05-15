@@ -14,7 +14,8 @@ var request = http.get(API, function(response){
 
 	response.on('end', function(){
 		var weather = JSON.parse(body);
-		console.log("The current temperature in " + weather.name + " is " +  weather.main.temp + " degrees F. ");
+		console.log("The current  condition in " + weather.name + " is " + 
+			weather.weather[0].main + ", " +  weather.main.temp + "\xB0 F.");
 	});
 
 });

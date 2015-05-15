@@ -1,3 +1,4 @@
 var weatherchecker = require("./weatherchecker");
+var zipcodes = process.argv.slice(2);
 
-weatherchecker.get("94539");
+zipcodes.forEach(weatherchecker.get);
