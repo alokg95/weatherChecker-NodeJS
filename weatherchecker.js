@@ -1,6 +1,10 @@
 var http = require("http");
+var my_name = "Alok";
 
-var request = http.get("http://api.openweathermap.org/data/2.5/weather?zip=93106,us&units=imperial", function(response){
+
+function get(zipCode){
+var API = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&units=imperial";
+var request = http.get(API, function(response){
 	var body = "";
 
 	response.on('data', function(stats){
@@ -10,9 +14,14 @@ var request = http.get("http://api.openweathermap.org/data/2.5/weather?zip=93106
 
 	response.on('end', function(){
 		var weather = JSON.parse(body);
-		console.log("The current weather is " + weather.weather.main + " (" + weather.main.temp + " degrees F) " + "in " + weather.name + ".");
+		console.log("The current temperature in " + weather.name + " is " +  weather.main.temp + " degrees F. ");
 	});
 
 });
+
+}
+
+module.exports.get = get; 
+
 
 

@@ -1,3 +1,3 @@
 var weatherchecker = require("./weatherchecker");
 
-weatherchecker.get("Fremont");
+weatherchecker.get("94539");
